@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS Investments - Portfolio Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1><span class="highlight">RS</span> Investments</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Analysis</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+        </nav>
+        <div class="user-controls">
+            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+            <div class="user-profile">
+                <img src="https://via.placeholder.com/40" alt="User Profile">
+                <span>Account</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <div class="dashboard-header">
+                <h2>Investment Dashboard</h2>
+                <div class="controls">
+                    <div class="file-input-container">
+                        <label for="excel-file" class="custom-file-upload">
+                            <i class="fas fa-file-excel"></i> Import Excel
+                        </label>
+                        <input type="file" id="excel-file" accept=".xlsx, .xls">
+                    </div>
+                    <button id="refresh-data" class="refresh-btn">
+                        <i class="fas fa-sync-alt"></i> Refresh Data
+                    </button>
+                </div>
+            </div>
+
+            <div class="dashboard-summary">
+                <div class="summary-card">
+                    <h3>Total Value</h3>
+                    <p class="value" id="total-value">$0.00</p>
+                    <p class="change positive" id="total-change">+0.00%</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Today's Change</h3>
+                    <p class="value" id="today-change">$0.00</p>
+                    <p class="change" id="today-percent">0.00%</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Total Gain/Loss</h3>
+                    <p class="value" id="total-gain-loss">$0.00</p>
+                    <p class="change" id="total-gain-loss-percent">0.00%</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Holdings</h3>
+                    <p class="value" id="holdings-count">0</p>
+                    <p class="subtitle">Companies</p>
+                </div>
+            </div>
+
+            <div class="portfolio-overview">
+                <div class="chart-container">
+                    <h3>Portfolio Allocation</h3>
+                    <canvas id="allocation-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Performance History</h3>
+                    <canvas id="performance-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="stock-table-container">
+                <h3>Holdings</h3>
+                <div class="table-controls">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-stocks" placeholder="Search holdings...">
+                    </div>
+                    <div class="sort-container">
+                        <label for="sort-by">Sort by:</label>
+                        <select id="sort-by">
+                            <option value="symbol">Symbol</option>
+                            <option value="name">Name</option>
+                            <option value="price">Current Price</option>
+                            <option value="change">Daily Change</option>
+                            <option value="value">Total Value</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table id="stock-table">
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Company Name</th>
+                                <th>Shares</th>
+                                <th>Avg. Cost</th>
+                                <th>Current Price</th>
+                                <th>Daily Change</th>
+                                <th>Total Value</th>
+                                <th>Gain/Loss</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stock-table-body">
+                            <!-- Stock data will be populated here -->
+                            <tr class="empty-state">
+                                <td colspan="8">
+                                    <div class="empty-message">
+                                        <i class="fas fa-file-upload"></i>
+                                        <p>Import an Excel file to view your portfolio</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 RS Investments. All rights reserved.</p>
+            <p>Disclaimer: Stock data is for informational purposes only. Not financial advice.</p>
+        </div>
+    </footer>
+
+    <div id="loading-overlay" class="hidden">
+        <div class="spinner"></div>
+        <p>Fetching real-time data...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS Investments - Sample Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .sample-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: var(--bg-primary);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .sample-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .sample-table th, .sample-table td {
+            padding: 0.75rem;
+            border: 1px solid var(--bg-tertiary);
+            text-align: left;
+        }
+        
+        .sample-table th {
+            background-color: var(--bg-secondary);
+            font-weight: 600;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius-md);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: background-color var(--transition-fast);
+        }
+        
+        .download-btn:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .download-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .note {
+            background-color: var(--bg-secondary);
+            padding: 1rem;
+            border-left: 4px solid var(--info-color);
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+        }
+        
+        .note h3 {
+            margin-bottom: 0.5rem;
+            color: var(--info-color);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1><span class="highlight">RS</span> Investments</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="#" class="active">Sample Portfolio</a></li>
+                <li><a href="#">Analysis</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+        </nav>
+        <div class="user-controls">
+            <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+            <div class="user-profile">
+                <img src="https://via.placeholder.com/40" alt="User Profile">
+                <span>Account</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="sample-container">
+            <h2>Sample Portfolio Template</h2>
+            <p>Use this template to create your own portfolio Excel file. The system will recognize the following column headers:</p>
+            
+            <div class="note">
+                <h3>Important Note</h3>
+                <p>The system is flexible and can recognize various column names. For example, "Symbol", "Ticker", or "Stock Symbol" will all be recognized as the stock symbol column.</p>
+            </div>
+            
+            <table class="sample-table">
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Company Name</th>
+                        <th>Shares</th>
+                        <th>Average Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AAPL</td>
+                        <td>Apple Inc.</td>
+                        <td>100</td>
+                        <td>150.75</td>
+                    </tr>
+                    <tr>
+                        <td>MSFT</td>
+                        <td>Microsoft Corporation</td>
+                        <td>50</td>
+                        <td>245.30</td>
+                    </tr>
+                    <tr>
+                        <td>GOOGL</td>
+                        <td>Alphabet Inc.</td>
+                        <td>25</td>
+                        <td>2750.00</td>
+                    </tr>
+                    <tr>
+                        <td>AMZN</td>
+                        <td>Amazon.com, Inc.</td>
+                        <td>30</td>
+                        <td>3300.50</td>
+                    </tr>
+                    <tr>
+                        <td>TSLA</td>
+                        <td>Tesla, Inc.</td>
+                        <td>40</td>
+                        <td>800.25</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Alternative Column Names</h3>
+            <p>The system recognizes various column names for flexibility:</p>
+            
+            <table class="sample-table">
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Recognized Column Names</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Stock Symbol</td>
+                        <td>Symbol, Ticker, Stock Symbol, Stock</td>
+                    </tr>
+                    <tr>
+                        <td>Company Name</td>
+                        <td>Company Name, Name, Company, Description</td>
+                    </tr>
+                    <tr>
+                        <td>Shares</td>
+                        <td>Shares, Quantity, Qty, Share Count, Position</td>
+                    </tr>
+                    <tr>
+                        <td>Average Cost</td>
+                        <td>Average Cost, Avg Cost, Cost Basis, Price Paid, Purchase Price</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <a href="sample_portfolio.xlsx" download class="download-btn">
+                <i class="fas fa-download"></i> Download Sample Excel File
+            </a>
+            
+            <div class="note">
+                <h3>Data Privacy</h3>
+                <p>Your portfolio data is processed entirely in your browser and is not sent to any server. The stock price information is fetched from public APIs.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 RS Investments. All rights reserved.</p>
+            <p>Disclaimer: Stock data is for informational purposes only. Not financial advice.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple theme toggle functionality for this page
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            
+            // Initialize theme
+            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('theme');
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDarkMode)) {
+                document.body.classList.add('dark-mode');
+                themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            
+            // Theme toggle
+            themeToggleBtn.addEventListener('click', () => {
+                const isDarkMode = document.body.classList.toggle('dark-mode');
+                themeToggleBtn.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            });
+        });
+    </script>
+</body>
+</html> 
